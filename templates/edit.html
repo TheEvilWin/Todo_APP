@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Editar Tarea{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm border-warning">
+  <div class="card-header bg-warning text-dark">
+    <h4 class="mb-0">✏️ Editar Tarea</h4>
+  </div>
+  <div class="card-body">
+    <form method="POST">
+      <div class="mb-3">
+        <label for="title" class="form-label">Título</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{ task.title }}" required>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Descripción</label>
+        <textarea class="form-control" id="description" name="description" rows="3">{{ task.description }}</textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">✅ Actualizar</button>
+      <a href="/" class="btn btn-secondary">Cancelar</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Confirmar Eliminación{% endblock %}
+
+{% block content %}
+<div class="card border-danger shadow-sm">
+  <div class="card-header bg-danger text-white">
+    <h4>🗑 Confirmar Eliminación</h4>
+  </div>
+  <div class="card-body">
+    <p>¿Estás seguro de que deseas eliminar esta tarea?</p>
+    <h5 class="text-danger">{{ task.title }}</h5>
+    <p class="text-muted">{{ task.description or "Sin descripción" }}</p>
+    <form method="POST">
+      <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+      <a href="/" class="btn btn-secondary">Cancelar</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Inicio - To-Do App{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2 class="mb-0">📝 Mis Tareas</h2>
+  <a href="/create" class="btn btn-success">+ Agregar Tarea</a>
+</div>
+
+{% if tasks %}
+  <div class="row g-3">
+    {% for task in tasks %}
+      <div class="col-md-6">
+        <div class="card shadow-sm border-0 h-100">
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="/task/{{ task.id }}" class="text-decoration-none text-primary">
+                {{ task.title }}
+              </a>
+            </h5>
+            <p class="card-text text-muted">{{ task.description or "Sin descripción" }}</p>
+            <div class="d-flex justify-content-end gap-2">
+              <a href="/edit/{{ task.id }}" class="btn btn-sm btn-outline-primary">✏️ Editar</a>
+              <a href="/delete/{{ task.id }}" class="btn btn-sm btn-outline-danger">🗑 Eliminar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="alert alert-info">No hay tareas todavía. ¡Crea una nueva!</div>
+{% endif %}
+{% endblock %}

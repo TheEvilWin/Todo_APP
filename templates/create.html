@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Crear Tarea{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm border-success">
+  <div class="card-header bg-success text-white">
+    <h4 class="mb-0">➕ Nueva Tarea</h4>
+  </div>
+  <div class="card-body">
+    <form method="POST">
+      <div class="mb-3">
+        <label for="title" class="form-label">Título</label>
+        <input type="text" class="form-control" id="title" name="title" required placeholder="Ej. Hacer tarea de programación">
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Descripción</label>
+        <textarea class="form-control" id="description" name="description" rows="3" placeholder="Detalles adicionales..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-success">💾 Guardar</button>
+      <a href="/" class="btn btn-secondary">Cancelar</a>
+    </form>
+  </div>
+</div>
+{% endblock %}
